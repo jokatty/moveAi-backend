@@ -28,8 +28,10 @@ export default function initUploadsContoller(db) {
     blobStream.end(req.file.buffer);
 
     const gcsUri = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+    // const gcsUri = `gs://moveai_dev/${blob.name}`;
 
     const [result] = await client.objectLocalization(gcsUri);
+    console.log(result);
     const objects = result.localizedObjectAnnotations;
     const items = [];
     objects.forEach((object) => {
@@ -39,7 +41,8 @@ export default function initUploadsContoller(db) {
       const veritices = object.boundingPoly.normalizedVertices;
       veritices.forEach((v) => console.log(`x: ${v.x}, y:${v.y}`));
     });
-    res.send(items);
+    // res.send(items);
+    res.send({ items, gcsUri });
   };
 
   return {

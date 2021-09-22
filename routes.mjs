@@ -1,6 +1,7 @@
 import Multer from 'multer';
 import db from './models/index.mjs';
 import initUploadsContoller from './controllers/uploads.mjs';
+import initAuthController from './controllers/auths.mjs';
 
 const multer = Multer({
   storage: Multer.memoryStorage(),
@@ -10,5 +11,8 @@ const multer = Multer({
 });
 export default function routes(app) {
   const uploads = initUploadsContoller(db);
+  const userAuth = initAuthController(db);
   app.post('/upload', multer.single('image'), uploads.create);
+  app.post('/signup', userAuth.createUser);
+  app.post('/login', userAuth.loginUser);
 }
