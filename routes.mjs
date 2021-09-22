@@ -12,6 +12,9 @@ const multer = Multer({
 export default function routes(app) {
   const uploads = initUploadsContoller(db);
   const userAuth = initAuthController(db);
+  app.get('/', (req, res) => {
+    res.send('Welcome to moveAI backend');
+  });
   app.post('/upload', multer.single('image'), uploads.create);
   app.post('/signup', userAuth.createUser);
   app.post('/login', userAuth.loginUser);
