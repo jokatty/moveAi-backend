@@ -8,7 +8,7 @@ const storage = new Storage();
 
 const bucket = storage.bucket(process.env.GCLOUD_STORAGE_BUCKET);
 
-export default function initUploadsContoller(db) {
+export default function initUploadsContoller() {
   const create = async (req, res) => {
     console.log('request came in');
     const blob = bucket.file(req.file.originalname);
