@@ -1,55 +1,72 @@
 #  MoveAI Backend
 
-This the backend application providing a REST API to MoveAI react app.
+This is the backend application providing a REST API to MoveAI react app. This application is built using Node.js, Express, and Postgres.
 
-## Install
+## Installation
+
+To get started with the MoveAI Backend, follow these steps:
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/jokatty/moveAi-backend.git
+   ```
 
 <hr/>
 
-```javascript
+2. Install dependencies:
+
+```
 npm install
 ```
 
-## DB Setup
+3. Start the server
+
+```
+npm start
+```
 
 <hr/>
-Step1: Update your details in the config file <br/>
-Step2: Run<br/>
+
+## DB Setup
+
+Step1: Update your database details in the `config file` <br/>
+Step2: Create db
 
 ```
 npx sequelize db:create
 ```
 
-## Run the app
+## REST API: Image Upload and Google Vision API Integration
 
-<hr/>
+## Upload Image
 
-```
-node index.mjs
-```
+### Endpoint
 
-## REST API
+`POST /api/upload`
 
-<hr />
-Upload image
+### Description
 
-```
-/api/upload
-```
+This endpoint allows users to upload images to the MoveAI Backend. Upon receiving an image, the backend makes use of Google's Vision API to analyze the content and extract various annotations.
 
-## Response
+### Request
 
-<hr/>
+- **Method:** `POST`
+- **Route:** `/api/upload`
+- **Body:** Form data with the image file
 
-```
+### Response
+
+Upon successful analysis, the API responds with a JSON object containing various annotations:
+
+```json
 {
-  faceAnnotations: [],
-  landmarkAnnotations: [],
-  logoAnnotations: [],
-  labelAnnotations: [],
-  textAnnotations: [],
-  localizedObjectAnnotations: [objects]
+  "faceAnnotations": [],
+  "landmarkAnnotations": [],
+  "logoAnnotations": [],
+  "labelAnnotations": [],
+  "textAnnotations": [],
+  "localizedObjectAnnotations": [
+    /* List of objects */
+  ]
 }
 ```
-
-<hr/>
