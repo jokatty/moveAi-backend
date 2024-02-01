@@ -1,5 +1,5 @@
 {
-  "name": "cra-ecom-back-end-swe1",
+  "name": "moveai-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.mjs",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rocketacademy/base-mvc-swe1.git"
+    "url": "git+https://github.com/jokatty/moveAi-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rocketacademy/base-mvc-swe1/issues"
+    "url": "https://github.com/jokatty/moveAi-backend/issues"
   },
-  "homepage": "https://github.com/rocketacademy/base-mvc-swe1#readme",
+  "homepage": "https://github.com/jokatty/moveAi-backend#readme",
   "devDependencies": {
     "eslint": "^7.15.0",
     "eslint-config-airbnb-base": "^14.2.1",
