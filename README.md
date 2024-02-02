@@ -19,21 +19,37 @@ To get started with the MoveAI Backend, follow these steps:
 npm install
 ```
 
-3. Start the server
+## DB Setup
+
+- Update your database details in the configuration file located at `config/config.js`.
+- Create the database by running: `npx sequelize db:create`.
+- Apply migrations to set up tables: `npx sequelize db:migrate`.
+
+## Google Cloud Configuration
+
+Before using the API, you need to set up Google Cloud Bucket and Vision API. Follow these steps:
+
+### Google Cloud Storage Bucket
+
+Create a Google Cloud Storage Bucket to store images.
+
+### Google Cloud Vision API
+
+Enable the Google Cloud Vision API for your project.
+
+## Environment Variables
+
+Ensure that the necessary environment variables are set.
+
+```env
+GCLOUD_STORAGE_BUCKET=your-bucket-name
+GOOGLE_APPLICATION_CREDENTIALS=path/to/your/keyfile.json
+```
+
+## Start the server
 
 ```
 npm start
-```
-
-<hr/>
-
-## DB Setup
-
-Step1: Update your database details in the `config file` <br/>
-Step2: Create db
-
-```
-npx sequelize db:create
 ```
 
 ## REST API: Image Upload and Google Vision API Integration
@@ -67,6 +83,11 @@ Upon successful analysis, the API responds with a JSON object containing various
   "textAnnotations": [],
   "localizedObjectAnnotations": [
     /* List of objects */
+    {
+      "name": "exampleObject",
+      "score": 0.85
+    }
+    // Additional objects...
   ]
 }
 ```
