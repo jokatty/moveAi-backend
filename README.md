@@ -1,6 +1,6 @@
 #  MoveAI Backend
 
-This is the backend application providing a REST API to MoveAI react app. This application is built using Node.js, Express, and Postgres.
+This is the backend application providing a REST API to [MoveAI react app](https://github.com/jokatty/moveAi). This application is built using Node.js, Express, and Postgres.
 
 ## Installation
 
